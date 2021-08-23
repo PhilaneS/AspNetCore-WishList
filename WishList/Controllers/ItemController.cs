@@ -27,7 +27,7 @@ namespace WishList.Controllers
             _context.Items.Add(item);
 
             _context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Create");
         }
 
         public IActionResult Delete(int Id)
