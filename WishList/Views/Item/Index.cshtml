@@ -3,7 +3,6 @@
 <a asp-action="crete">Add Item</a>
 <ul>
     @foreach(var item in Model) { 
-    <li>@item.Description</li>
-    <a asp-action-for="delete" asp-route-Id="@item.Id">Delete</a>
+    <li>@item.Description <a asp-action-for="delete" asp-route-Id="@item.Id">Delete</a></li>    
     }
 </ul>
