@@ -29,5 +29,18 @@ namespace WishList.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Delete(int Id)
+        {
+            var ItemToDelet = _context.Items.FirstOrDefault(item => item.Id == Id);
+
+            _context.Items.Remove(ItemToDelet);
+
+            //_context.Entry(Item).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }
