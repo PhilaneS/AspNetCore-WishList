@@ -2,6 +2,6 @@
 <h1> Wishlist</h1>
 <a asp-action="crete">Add Item</a>
 <ul>@foreach(var item in Model) { 
-    <li>@item.Description <a asp-action-for="delete" asp-route-Id="@item.Id">Delete</a></li>    
+    <li>@item.Description <a asp-action="delete" asp-route-Id="@item.Id">Delete</a></li>    
     }
 </ul>
