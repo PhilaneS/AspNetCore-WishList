@@ -15,10 +15,15 @@ namespace WishList.Controllers
         {
             _context = context;
         }
-        [HttpGet]
         public IActionResult Index()
         {
-            return View(_context.Items.ToList());
+            return View("Index",_context.Items.ToList());
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return RedirectToAction("Create");
         }
 
         [HttpPost]
@@ -27,16 +32,14 @@ namespace WishList.Controllers
             _context.Items.Add(item);
 
             _context.SaveChanges();
-            return RedirectToAction("Create");
+            return RedirectToAction("Index");
         }
 
-        public IActionResult Delete(int Id)
+        public IActionResult Delete(int id)
         {
-            var ItemToDelet = _context.Items.Find(Id);
+            var item = _context.Items.FirstOrDefault(x => x.Id == id);
 
-            _context.Items.Remove(ItemToDelet);
-
-            //_context.Entry(Item).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+            _context.Items.Remove(item);
 
             _context.SaveChanges();
 
