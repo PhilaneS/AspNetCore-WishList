@@ -17,7 +17,7 @@ namespace WishList.Controllers
         }
         public IActionResult Index()
         {
-            return View(new List<Item>() { new Item { Id=1, Description="Testing" } });
+            return View(_context.Items.ToList());
         }
     }
 }
