@@ -1,7 +1,7 @@
 ﻿@model List<WishList.Models.Item>
 <h1> Wishlist</h1>
-<a asp-action="crete">Add Item</a>
+<a asp-action="create">Add Item</a>
 <ul>@foreach(var item in Model) { 
-    <li>@item.Description <a asp-action="delete" asp-route-Id="@item.Id">Delete</a></li>    
+    <li>@item.Description <a asp-action="delete" asp-route-Id="@item.Id">delete</a></li>    
     }
 </ul>
