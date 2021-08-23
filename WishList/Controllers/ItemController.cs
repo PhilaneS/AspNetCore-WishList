@@ -15,9 +15,19 @@ namespace WishList.Controllers
         {
             _context = context;
         }
+        [HttpGet]
         public IActionResult Index()
         {
             return View(_context.Items.ToList());
+        }
+
+        [HttpPost]
+        public IActionResult Create(Item item)
+        {
+            _context.Items.Add(item);
+
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
